@@ -1,0 +1,74 @@
+<!-- MENU SUPERIOR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="/pages/dashboard">WEB-AGENDA</a>
+
+        <div class="d-flex align-items-center text-white">
+
+            <span class="me-3">
+                Usuário: <strong>{{ nome() }}</strong> | Perfil: <strong>{{ perfil() }}</strong>
+            </span>
+
+            <button class="btn btn-outline-light mr-3 btn-sm" (click)="logout()">
+                Sair da agenda
+            </button>
+
+        </div>
+
+    </div>
+</nav>
+
+
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- MENU LATERAL -->
+        <div class="col-md-2 bg-light min-vh-100 pt-3">
+
+            <h6 class="text-center mb-3">Menu principal</h6>
+
+            <div class="list-group">
+
+                <a href="/pages/dashboard" class="list-group-item list-group-item-action">
+                    Dashboard
+                </a>
+
+                <a href="/pages/cadastrar-tarefas" class="list-group-item list-group-item-action">
+                    Cadastrar tarefas
+                </a>
+
+                <a href="/pages/consultar-tarefas" class="list-group-item list-group-item-action">
+                    Consultar tarefas
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ÁREA CENTRAL -->
+        <div class="col-md-10 p-4">
+
+            <div class="card shadow">
+                <div class="card-body">
+
+                    <h2>Seja bem-vindo ao sistema WEB-AGENDA</h2>
+
+                    <hr/>
+
+                    <p>
+                        Este sistema permite gerenciar suas tarefas e compromissos.
+                    </p>
+
+                    <p>
+                        Utilize o menu lateral para acessar as funcionalidades disponíveis.
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

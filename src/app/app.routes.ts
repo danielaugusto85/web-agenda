@@ -1,11 +1,18 @@
 import { Routes } from '@angular/router';
 import { AutenticarUsuario } from './pages/autenticar-usuario/autenticar-usuario';
 import { CadastrarUsuario } from './pages/cadastrar-usuario/cadastrar-usuario';
+import { Dashboard } from './pages/dashboard/dashboard';
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
     {
         path : "pages/autenticar-usuario", //rota de navegação
         component: AutenticarUsuario //classe do componente
+    },
+    {
+        path : "pages/dashboard", //rota de navegação
+        component : Dashboard, //Classe do componente
+        canActivate: [AuthGuard] //aplicando o guardião
     },
     {
         path : "pages/cadastrar-usuario", //rota de navegação

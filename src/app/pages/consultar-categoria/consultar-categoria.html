@@ -1,1 +1,65 @@
-<p>consultar-categoria works!</p>
+<!-- MENU SUPERIOR -->
+<app-navbar/>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- MENU LATERAL -->
+        <div class="col-md-2">
+            <app-sidebar></app-sidebar>
+        </div>
+
+        <!-- ÁREA CENTRAL -->
+        <div class="col-md-10 p-4">
+
+            <div class="card shadow">
+                <div class="card-body">
+
+                    <h4>Consulta de Categoria</h4>
+                    <p>Listagem de categorias cadastradas em sua agenda.</p>
+                    <hr/>
+
+                    @if(categorias().length == 0) {
+                        <div class="alert alert-warning">
+                            Não há categorias cadastradas em sua agenda.
+                        </div>
+                    }
+                    @else if(categorias().length > 0) {
+                        <table class="table table-hover table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Noe da categoria</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for(c of categorias(); track c.id) {
+                                    <tr>
+                                        <td>{{ c.nome | uppercase }}</td>
+                                        <td>
+                                            <button class="btn btn-outline-primary me-1" 
+                                            [routerLink]="['/pages/editar-categoria', c.id]">
+                                                Editar
+                                            </button>
+                                            <button class="btn btn-outline-danger" (click)="onDelete(c)">
+                                                Excluir
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="2">
+                                        Total de registros: {{ categorias().length }}
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    }
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
